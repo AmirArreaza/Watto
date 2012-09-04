@@ -65,7 +65,12 @@ module Watto
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
 
-    #config.i18n.locale = :es
+    #Internacionalizacion
+    # tell the I18n library where to find your translations
+    I18n.load_path += Dir[Rails.root.join('lib', 'locale', '*.{rb,yml}')]
+ 
+    # set default locale to something other than :en
+    I18n.default_locale = :es
 
   end
 end
