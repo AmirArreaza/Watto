@@ -5,22 +5,22 @@
     	<%= form_for(@user) do |f| %>
             <%= render 'shared/error_messages', object: f.object %>
 
-            <%= f.label :id_number, "Cedula" %>
+            <%= f.label :id_number%>
             <%= f.text_field :id_number %>
 
-      	    <%= f.label :first_name, "Nombre" %>
+      	    <%= f.label :first_name %>
       	    <%= f.text_field :first_name %>
 
-      		<%= f.label :last_name, "Apellido" %>
+      		<%= f.label :last_name %>
       		<%= f.text_field :last_name %>
 
-      		<%= f.label :email, "Email" %>
+      		<%= f.label :email %>
       		<%= f.text_field :email %>
 
-      		<%= f.label :password, "Contraseña" %>
+      		<%= f.label :password %>
       		<%= f.password_field :password %>
 
-            <%= f.label :password_confirmation, "Confirmar Contraseña" %>
+            <%= f.label :password_confirmation %>
             <%= f.password_field :password_confirmation %>
 
       		<%= f.submit "Crear mi cuenta", class: "btn btn-success" %>

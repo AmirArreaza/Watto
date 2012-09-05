@@ -197,3 +197,13 @@ es:
   activerecord:
     errors:
       <<: *errors
+  activerecord:
+    attributes:
+      user:
+        email: E-mail
+        id_number: Cedula
+        first_name: Nombre
+        last_name: Apellido
+        password: Contraseña
+        password_confirmation: Confirmar Contraseña
+        password_digest: Contraseña

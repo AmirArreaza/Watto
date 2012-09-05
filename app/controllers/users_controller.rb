@@ -18,13 +18,18 @@ class UsersController < ApplicationController
   	end
 
   	def update
-    @user = User.find(params[:id])
-    if @user.update_attributes(params[:user])
-      redirect_to 'new'
-    else
-      render 'edit'
+        @user = User.find(params[:id])
+        if @user.update_attributes(params[:user])
+            redirect_to 'new'
+        else
+            render 'edit'
+        end
     end
-  end
+
+    def destroy
+        User.find(params[:id]).destroy
+        redirect_to root_url
+    end
 
 
 end
