@@ -4,7 +4,6 @@ class User < ActiveRecord::Base
   	attr_accessible :id_number, :email, :first_name, :last_name, :password, :password_confirmation
 
 	has_secure_password
-	before_save :encrypt_password
 	before_save { |user| user.email = email.downcase }
     before_save :create_remember_token
 	
@@ -34,15 +33,9 @@ class User < ActiveRecord::Base
     		self.remember_token = SecureRandom.urlsafe_base64
     	end
 
-    	#Metodo para agregar Sal al password
-    	def encrypt_password
-			if password.present?
-				self.salt = BCrypt::Engine.generate_salt
-				self.password = BCrypt::Engine.hash_secret(password, salt)
-			end
-		end
-
 		def clear_password
 			self.password = nil
-	end
+		end
+
+
 end

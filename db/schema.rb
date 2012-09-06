@@ -11,9 +11,9 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120905142440) do
+ActiveRecord::Schema.define(:version => 20120906232904) do
 
-  create_table "Users", :force => true do |t|
+  create_table "users", :force => true do |t|
     t.integer  "id_number"
     t.string   "first_name"
     t.string   "last_name"
@@ -22,7 +22,6 @@ ActiveRecord::Schema.define(:version => 20120905142440) do
     t.string   "remember_token"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
-    t.string   "salt"
   end
 
 end

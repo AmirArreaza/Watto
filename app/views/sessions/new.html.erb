@@ -1,0 +1,21 @@
+<h1>Ingresa</h1>
+
+<div class="row">
+    
+    <div class="span6 offset3">
+        <%= form_for(:session, url: sessions_path) do |f| %>
+
+            <%= f.label :email, "Email" %>
+            <%= f.text_field :email %>
+
+            <%= f.label :password, "Contraseña" %>
+            <%= f.password_field :password %><br/>
+
+            <%= f.submit "Sign in", class: "btn btn-large btn-primary" %>
+        <% end %>
+        <p>
+            <%= link_to "Registro", signup_path %>
+        </p>
+    </div>
+
+</div>

@@ -7,6 +7,7 @@ class UsersController < ApplicationController
 	def create
 		@user = User.new(params[:user])
     	if @user.save
+            flash[:success] = "Bienvenido " + @user.first_name + " " + @user.last_name + " a TITULO"
     		redirect_to root_url	
     	else
       		render 'new'
@@ -31,5 +32,5 @@ class UsersController < ApplicationController
         redirect_to root_url
     end
 
-
+    
 end
