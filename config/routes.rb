@@ -2,7 +2,7 @@ Watto::Application.routes.draw do
 	root to: 'static_pages#home'
   	
   	resources :sessions, 	only: [:new, :create, :destroy]
-  	resources :users, 		only: [:create, :edit, :update, :destroy]
+  	resources :users, only: [:new, :create, :show]
 
   	match '/signup',  to: 'users#new'
   	match '/signin',  to: 'sessions#new'

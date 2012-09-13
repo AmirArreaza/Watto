@@ -84,6 +84,7 @@ GEM
     json (1.7.5)
     libwebsocket (0.1.5)
       addressable
+    magic_encoding (0.0.2)
     mail (2.4.4)
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
@@ -174,6 +175,7 @@ DEPENDENCIES
   factory_girl_rails (= 1.4.0)
   faker (= 1.0.1)
   jquery-rails (= 2.0.2)
+  magic_encoding
   mysql
   rails (= 3.2.8)
   rspec-rails (= 2.10.0)

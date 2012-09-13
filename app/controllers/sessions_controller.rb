@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 class SessionsController < ApplicationController
 
 	def new
@@ -7,14 +9,18 @@ class SessionsController < ApplicationController
   		user = User.find_by_email(params[:session][:email].downcase)
     	if user && user.authenticate(params[:session][:password])
       		sign_in user
-      		redirect_to user
+      		redirect_back_or user
     	else
-      		flash[:error] = 'Contrasena invalida' # Not quite right!
+      		flash[:error] = 'Contraseña invalida' # Not quite right!
       		render 'new'
     	end
   	end
 
+    def delete
+    end
+    
   	def destroy
+        sign_out
+        redirect_to root_url
   	end
-
 end
