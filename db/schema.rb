@@ -11,7 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120907200157) do
+ActiveRecord::Schema.define(:version => 20120914201553) do
+
+  create_table "blacklists", :force => true do |t|
+    t.string   "reason"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "blacklists", ["user_id", "created_at"], :name => "index_blacklists_on_user_id_and_created_at"
 
   create_table "users", :force => true do |t|
     t.integer  "id_number"
