@@ -207,3 +207,6 @@ es:
         password: Contraseña
         password_confirmation: Confirmar Contraseña
         password_digest: Contraseña
+      blacklist:
+      	reason: Razón
+      	

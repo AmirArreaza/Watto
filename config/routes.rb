@@ -1,4 +1,6 @@
 Watto::Application.routes.draw do
+  get "blacklists/new"
+
 	root to: 'static_pages#home'
   	
   	resources :sessions, 	only: [:new, :create, :destroy]
