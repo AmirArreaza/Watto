@@ -8,5 +8,11 @@
 			Cedula: <%= @user.id_number %> <br/>
 			Email: 	<%= @user.email %> <br/>
 		</p>
+    <%= link_to "Nueva Compañía", new_company_path, class: "btn btn-primary" %>
+    <ol class="companies">
+      <h2>Compañías</h2>
+      <%= render @companies %>
+    </ol>
+    <%= will_paginate @companies %>
 	</section>
 </aside>
