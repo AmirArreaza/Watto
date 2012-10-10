@@ -11,7 +11,23 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(:version => 20120926003236) do
+=======
+ActiveRecord::Schema.define(:version => 20121008234449) do
+
+  create_table "addresses", :force => true do |t|
+    t.string   "type"
+    t.text     "address_name"
+    t.string   "map_coordinates"
+    t.integer  "belong_address"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  add_index "addresses", ["belong_address"], :name => "index_addresses_on_belong_address"
+  add_index "addresses", ["id", "belong_address"], :name => "index_addresses_on_id_and_belong_address", :unique => true
+>>>>>>> 177933b2370c515a6161945cd908594243bb0f6b
 
   create_table "blacklists", :force => true do |t|
     t.string   "reason"
@@ -52,6 +68,10 @@ ActiveRecord::Schema.define(:version => 20120926003236) do
     t.datetime "updated_at",      :null => false
   end
 
+  add_index "reservations", ["product_id"], :name => "index_reservations_on_product_id"
+  add_index "reservations", ["user_id", "product_id"], :name => "index_reservations_on_user_id_and_product_id", :unique => true
+  add_index "reservations", ["user_id"], :name => "index_reservations_on_user_id"
+
   create_table "users", :force => true do |t|
     t.integer  "id_number"
     t.string   "first_name"
@@ -65,5 +85,6 @@ ActiveRecord::Schema.define(:version => 20120926003236) do
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["id_number"], :name => "index_users_on_id_number", :unique => true
+  add_index "users", ["remember_token"], :name => "index_users_on_remember_token"
 
 end
