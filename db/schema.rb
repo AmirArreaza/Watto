@@ -11,23 +11,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(:version => 20120926003236) do
-=======
 ActiveRecord::Schema.define(:version => 20121008234449) do
 
   create_table "addresses", :force => true do |t|
     t.string   "type"
     t.text     "address_name"
     t.string   "map_coordinates"
-    t.integer  "belong_address"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+    t.integer  "belong_address_id"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
   end
 
-  add_index "addresses", ["belong_address"], :name => "index_addresses_on_belong_address"
-  add_index "addresses", ["id", "belong_address"], :name => "index_addresses_on_id_and_belong_address", :unique => true
->>>>>>> 177933b2370c515a6161945cd908594243bb0f6b
+  add_index "addresses", ["belong_address_id"], :name => "index_addresses_on_belong_address_id"
+  add_index "addresses", ["id", "belong_address_id"], :name => "index_addresses_on_id_and_belong_address_id", :unique => true
 
   create_table "blacklists", :force => true do |t|
     t.string   "reason"
