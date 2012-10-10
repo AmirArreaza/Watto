@@ -8,7 +8,7 @@ class CreateAddresses < ActiveRecord::Migration
       	t.timestamps
     end
     add_index :addresses , :belong_address
-    add_index :addresses , [:id, :belong_address], unique: true
+    add_index :addresses , [:id, :belong_address]
   end
 
 end
