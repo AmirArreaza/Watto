@@ -14,5 +14,13 @@ namespace :db do
                         password: password,
                         password_confirmation: password)
         end
+        5.times do |n|
+        	p_name = "Chancleta - #{n+1}"
+        	p_stock = 10 * n
+        	p_description = "Una Chancleta Voladora"
+        	Product.create!(name: p_name,
+        					stock: p_stock,
+        					description: p_description)
+        end 	
     end
 end
