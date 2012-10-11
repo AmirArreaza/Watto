@@ -6,6 +6,6 @@ class Address < ActiveRecord::Base
 				length: { maximum: 400, message: "no debe tener mas de 400 caracteres"}
 	validates :type, presence: { message: "no puede estar en blanco"}
 
-	belongs_to :belong_address	, class_name: "Address"
-	
+	belongs_to :belong_address, class_name: "Address"
+	has_many :addresses, :through => :belong_address 
 end

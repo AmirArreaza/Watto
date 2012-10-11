@@ -23,7 +23,6 @@ ActiveRecord::Schema.define(:version => 20121008234449) do
   end
 
   add_index "addresses", ["belong_address_id"], :name => "index_addresses_on_belong_address_id"
-  add_index "addresses", ["id", "belong_address_id"], :name => "index_addresses_on_id_and_belong_address_id", :unique => true
 
   create_table "blacklists", :force => true do |t|
     t.string   "reason"
