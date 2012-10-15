@@ -14,7 +14,7 @@
 ActiveRecord::Schema.define(:version => 20121008234449) do
 
   create_table "addresses", :force => true do |t|
-    t.string   "type"
+    t.string   "location_type"
     t.text     "address_name"
     t.string   "map_coordinates"
     t.integer  "belong_address_id"
