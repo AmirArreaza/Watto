@@ -1,0 +1,13 @@
+<%= render 'shared/error_messages', object: f.object %>
+
+<%= f.label "País: Venezuela" %>
+<%= f.hidden_field :location_type, :value => "Location" %>
+
+<%= f.label :belong_address, "Estado" %>
+<%= collection_select(:address, :belong_address, Address.find(:all, :order=>"address_name", :conditions => {:location_type => "State"}), :id, :address_name, options ={:prompt => true}, :class =>"address") %>
+
+<%= f.label :belong_address, "Ciudad" %>
+<%= collection_select(:address, :belong_address, Address.find(:all, :order=>"address_name", :conditions => {:location_type => "City"}), :id, :address_name, options ={:prompt => true}, :class =>"address") %>
+
+<%= f.label :address_name%>
+<%= f.text_area :address_name %>

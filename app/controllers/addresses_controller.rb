@@ -5,14 +5,21 @@ class AddressesController < ApplicationController
 	end
 
 	def new
-		@addr = Address.find(:all)
 		@address = Address.new
 	end
 
 	def create
 
+		if params[:address][:belong_address].to_i == 0
+			params[:address][:belong_address] = nil
+		else
+			@BelongAddress = Address.find(params[:address][:belong_address].to_i)
+			params[:address][:belong_address] = @BelongAddress
+		end
 		@address = Address.new(params[:address])
 		if @address.save
+		else
+			render 'new'
 		end
 	end
 
