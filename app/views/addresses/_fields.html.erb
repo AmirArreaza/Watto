@@ -2,10 +2,12 @@
 
 <%= f.label "País: Venezuela" %><br/>
 <%= f.hidden_field :location_type, :value => "Location" %>
+<%= select_tag "state_id", options_from_collection_for_select(@states, "id", "address_name"), :prompt => "Select a State", :onchange => "update_cities_div(this.value)" %>
 
-<%= f.label "Estado" %><br/>
-<%= collection_select(:address, :id, Address.find(:all), :id, :address_name, {:prompt => "Select a State"}, {:id => 'states_select'}) %>
-<%= collection_select(:address, :belong_address, @cities, :id, :address_name, {:prompt => "Select an City"}, {:id => 'city_select'})%>
+<div id="citiesDiv">	
+	<%= render :partial => 'cities', :locals => { :f => f  } %>
+</div>
 
 <%= f.label :address_name%>
-<%= f.text_area :address_name %>
+<%= f.text_area :address_name , :size=> "5x6"%>
+

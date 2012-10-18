@@ -1,0 +1,20 @@
+<% if !states.blank? %>
+	<%= f.select :belong_address, :collection=>states.collect{ |s| [s.address_name,s.id]} %>
+<% else %>
+    <%= f.select :belong_address, :collection=>[] %>
+<% end %>
+
+<script type="text/javascript">
+	jQuery(function($) {
+	// when the #region_id field changes
+  		$("#profile_region_id").change(function() {
+    		// make a POST call and replace the content
+    		var state = $('select#profile_region_id :selected').val();
+    		if(state == "") state="0";
+    		jQuery.get('/addresses/update_city_select/' + state, function(data){
+        		$("#addressCities").html(data);
+    		})
+    	return false;
+  		});
+	})
+</script>

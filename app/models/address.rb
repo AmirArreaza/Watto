@@ -9,4 +9,5 @@ class Address < ActiveRecord::Base
 
 	belongs_to :belong_address, class_name: "Address"
 	has_many :addresses, :through => :belong_address 
+
 end
