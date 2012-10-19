@@ -1,15 +1,7 @@
 <div class="row">
-  <div class="span6 offset3">
-    <%= form_for(@address) do |f| %>
-      <%= render 'shared/error_messages', object: f.object %>
-
-        <%= f.label :address_name, "Localidad" %>
-        <%= f.text_field :address_name %>
-
-        <%= f.label :location_type, "Tipo de Localidad" %>
-        <%= f.text_field :location_type %>
-
-      <%= f.submit "Guardar Cambios", class: "btn btn-large btn-primary" %>
-    <% end %>
-  </div>
+	<div class="span4 offset4">
+		<%= @address.address_name %>      
+		<%= @address.location_type %>   
+		<%= @address.belong_address.address_name %>
+	</div>
 </div>

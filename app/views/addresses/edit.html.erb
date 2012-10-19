@@ -1,0 +1,9 @@
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for(@address) do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+      <%= render 'fields', f:f %><br/>
+      <%= f.submit "Guardar Cambios", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+</div>

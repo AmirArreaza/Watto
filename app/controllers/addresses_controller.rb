@@ -4,33 +4,37 @@ class AddressesController < ApplicationController
 	end
 
 	def new
-		@states  = Address.find(:all, :order=>"address_name", :conditions => {:location_type => "Country"})
-		@cities  = []
-		@s_city = ''
+		load_locations
 		@address = Address.new
 	end
 
-	def create
-		
+	def create	
 		@address = Address.new(params[:address])
-		@address.belong_address = Address.find(params[:city_selected])
+		if params[:city_selected] != ""
+			@address.belong_address = Address.find(params[:city_selected])
+		end
 		if @address.save
 			flash[:success] = "Se grabo."
 			render 'show'
 		else
-			flash[:error] = "Fallo."
+			load_locations
 			render 'new'
 		end
 	end
 
 	def edit
     	@address = Address.find(params[:id])
+    	@states  = Address.find(:all, :order=>"address_name", :conditions => {:location_type => "State"})
+    	@state_selected = @address.belong_address.belong_address.id
+    	@cities = Address.where(:belong_address_id => @state_selected, :location_type => "City")
+    	@city_selected = @address.belong_address.id
   	end
 
   	def update
     	@address = Address.find(params[:id])
-    	if @address.update_attributes(params[:user])
-      		redirect_to 'new'
+    	@address.belong_address = Address.find(params[:city_selected])
+    	if @address.update_attributes(params[:address])
+      		render 'show'
     	else
       		render 'edit'
     	end
@@ -41,7 +45,14 @@ class AddressesController < ApplicationController
     	redirect_to 'new'
 	end
 
-	def update_versions
+	def load_locations
+		@states  = Address.find(:all, :order=>"address_name", :conditions => {:location_type => "State", :belong_address_id => 1})
+		@cities  = []
+		@state_selected = 0
+		@city_selected = 0
+	end
+
+	def update_cities
   		@cities = Address.where(:belong_address_id => params[:id])
   		render :partial => "cities", :object => @cities
 	end

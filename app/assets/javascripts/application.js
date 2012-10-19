@@ -17,7 +17,7 @@
 
 	function update_cities_div(state_id_state_id) {  
   		jQuery.ajax({
-    		url: '/addresses/update_versions/' + state_id_state_id,
+    		url: '/addresses/update_cities/' + state_id_state_id,
     		type: "GET",
     		data: state_id_state_id,
     		dataType: "html",

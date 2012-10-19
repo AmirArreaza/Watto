@@ -15,5 +15,35 @@ namespace :db do
                         password_confirmation: password)
         end
         
+        Address.create!(
+        	address_name: "Venezuela",
+        	location_type: "Country"
+        )
+
+        Address.create!(
+        	address_name: "EEUU",
+        	location_type: "Country"
+        )
+
+        Address.create!(
+        	address_name: "India",
+        	location_type: "Country"
+        )
+
+        Address.create!(
+        	address_name: "Distrito Capital",
+        	location_type: "State",
+        	belong_address: 1
+        )
+        Address.create!(
+        	address_name: "Miranda",
+        	location_type: "State",
+        	belong_address: 1
+        )
+        Address.create!(
+        	address_name: "Zulia",
+        	location_type: "State",
+        	belong_address: 1
+        )
     end
 end
