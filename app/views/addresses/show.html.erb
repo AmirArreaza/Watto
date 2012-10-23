@@ -2,6 +2,8 @@
 	<div class="span4 offset4">
 		<%= @address.address_name %>      
 		<%= @address.location_type %>   
-		<%= @address.belong_address.address_name %>
+		<% if @address.belong_address %>
+			<%= @address.belong_address.address_name %>
+		<% end %>
 	</div>
 </div>

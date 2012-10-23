@@ -4,7 +4,8 @@ Watto::Application.routes.draw do
   resources :sessions, 	only: [:new, :create, :destroy]
   resources :users, only: [:new, :create, :show]
   resources :addresses, only: [:new, :create, :show, :edit, :update]
-  	match "addresses/update_cities/:id" => "addresses#update_versions"
+  	match "addresses/update_cities/:id" => "addresses#update_cities"
+  	match "addresses/update_states/:id" => "addresses#update_states"
 
 
   resources :companies, only: [:show, :new, :create, :edit, :update, :destroy]
