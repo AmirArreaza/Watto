@@ -4,6 +4,7 @@ Watto::Application.routes.draw do
   resources :sessions, 	only: [:new, :create, :destroy]
   resources :users, only: [:new, :create, :show]
   resources :companies, only: [:show, :new, :create, :edit, :update, :destroy]
+  resources :products, only: [:show, :new, :create, :edit, :update, :destroy]
 
   match '/signup',  to: 'users#new'
   match '/signin',  to: 'sessions#new'

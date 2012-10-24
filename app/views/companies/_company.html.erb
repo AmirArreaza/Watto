@@ -8,4 +8,6 @@
     <%= link_to "Editar Compañía", edit_company_path(company) %>
   <% end %>
   <%= render "companies/company_delete_button", item: company %>
+  <%= link_to "Nueva Compañía", new_company_path, class: "btn btn-primary" %>
+  <%= will_paginate company.products %>
 </li>

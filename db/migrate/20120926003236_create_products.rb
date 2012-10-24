@@ -4,8 +4,10 @@ class CreateProducts < ActiveRecord::Migration
       t.string :name
       t.integer :stock
       t.string :description
+      t.integer :company_id
 
       t.timestamps
     end
+    add_index :products, [:company_id]
   end
 end
