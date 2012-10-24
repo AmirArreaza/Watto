@@ -1,0 +1,3 @@
+<%= select_tag "state_selected", options_from_collection_for_select(@states, "id", "address_name", @state_selected), :prompt => "Seleccione un estado", :onchange => "update_cities_div(this.value)" %>
+<br/>
+<%= select_tag :city_selected, options_from_collection_for_select(@cities, "id", "address_name", @city_selected), :prompt => "Seleccione una Ciudad" %>

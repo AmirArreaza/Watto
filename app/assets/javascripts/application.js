@@ -14,3 +14,27 @@
 //= require jquery_ujs
 //= require_tree .
 //= require bootstrap
+
+	function update_states_div(state_id_state_id) {  
+  		jQuery.ajax({
+    		url: '/addresses/update_states/' + state_id_state_id,
+    		type: "GET",
+    		data: state_id_state_id,
+    		dataType: "html",
+    		success: function(data) {
+      			jQuery("#statesDiv").html(data);
+    		}
+  		});
+	};
+
+	function update_cities_div(state_id_state_id) {  
+  		jQuery.ajax({
+    		url: '/addresses/update_cities/' + state_id_state_id,
+    		type: "GET",
+    		data: state_id_state_id,
+    		dataType: "html",
+    		success: function(data) {
+      			jQuery("#statesDiv").html(data);
+    		}
+  		});
+	};
