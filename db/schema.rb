@@ -11,7 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120925145028) do
+ActiveRecord::Schema.define(:version => 20121008234449) do
+
+  create_table "addresses", :force => true do |t|
+    t.string   "location_type"
+    t.text     "address_name"
+    t.string   "map_coordinates"
+    t.integer  "belong_address_id"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+  end
+
+  add_index "addresses", ["belong_address_id"], :name => "index_addresses_on_belong_address_id"
 
   create_table "blacklists", :force => true do |t|
     t.string   "reason"
@@ -33,6 +44,14 @@ ActiveRecord::Schema.define(:version => 20120925145028) do
   end
 
   add_index "companies", ["user_id"], :name => "index_companies_on_user_id"
+
+  create_table "products", :force => true do |t|
+    t.string   "name"
+    t.integer  "stock"
+    t.string   "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
 
   create_table "reservations", :force => true do |t|
     t.integer  "product_id"
