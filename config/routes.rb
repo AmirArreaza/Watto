@@ -7,6 +7,7 @@ Watto::Application.routes.draw do
   	match "addresses/update_cities/:id" => "addresses#update_cities"
   	match "addresses/update_states/:id" => "addresses#update_states"
   resources :companies, only: [:show, :new, :create, :edit, :update, :destroy]
+  resources :products, only: [:show, :new, :create, :edit, :update, :destroy]
 
   root to: 'users#new'
 
