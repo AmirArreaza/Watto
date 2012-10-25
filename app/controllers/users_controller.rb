@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-
+before_filter :signed_in_user, only: [:update, :edit]
   def show
     @user = User.find(params[:id])
     @companies = @user.companies.paginate(page: params[:page])

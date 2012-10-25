@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 class AddressesController < ApplicationController
+	before_filter :signed_in_user, only: [:new, :create, :destroy, :update, :edit]
 	def show
 		@address = Address.find(params[:id])
 	end
