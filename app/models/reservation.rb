@@ -5,17 +5,15 @@ class Reservation < ActiveRecord::Base
   	belongs_to :product
 
 	validates :quantity, presence: true
-  	validates :user_id, presence: true
-  	validates :product_id, presence: true
-  	validates :expiration_date, presence: true
+	validates :product_id, presence: true
 
-  	before_save :calculate_expiration_date
-  	before_save :calculate_total_cost
+	before_save :calculate_expiration_date
 
 	private 
 		
 		def calculate_expiration_date
-			self.expiration_date = self.created_at + 5.days
+			self.expiration_date = self.created_at
+			
 		end
 
 		def calculate_total_cost

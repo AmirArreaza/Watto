@@ -1,7 +1,13 @@
 namespace :db do
     desc "Llenar BD con ejemplos"
     task populate: :environment do
-        10.times do |n|
+        make_users
+    	make_companies
+        make_products
+    end
+
+    def make_users
+    	10.times do |n|
             name  = Faker::Name.name
             apellido = Faker::Name.name
             email = "Ejemplo-#{n+1}@Watto.org"
@@ -14,36 +20,35 @@ namespace :db do
                         password: password,
                         password_confirmation: password)
         end
-        
-        Address.create!(
-        	address_name: "Venezuela",
-        	location_type: "Country"
-        )
-
-        Address.create!(
-        	address_name: "EEUU",
-        	location_type: "Country"
-        )
-
-        Address.create!(
-        	address_name: "India",
-        	location_type: "Country"
-        )
-
-        Address.create!(
-        	address_name: "Distrito Capital",
-        	location_type: "State",
-        	belong_address: 1
-        )
-        Address.create!(
-        	address_name: "Miranda",
-        	location_type: "State",
-        	belong_address: 1
-        )
-        Address.create!(
-        	address_name: "Zulia",
-        	location_type: "State",
-        	belong_address: 1
-        )
     end
+
+    def make_companies
+    	users = User.all
+    	users.each { |user| 
+    		nombre_comercial = Faker::Company.name
+    		descripcion = "Descripcion de " + nombre_comercial
+    		nombre_fiscal = "Fiscal " + Faker::Company.name
+    		rif = "J-" + Faker::Address.zip_code
+    		user.companies.create!(
+    					commercial_name: nombre_comercial,
+    					description: descripcion,
+    					fiscal_name: nombre_fiscal,
+    					rif: rif) }
+  	end
+
+    def make_products
+    	companies = Company.all
+    	companies.each { |company| 
+    		5.times do |n|
+        		nombre_producto = "Producto #{n+1}"
+        		descripcion 	= "Descripcion del Producto #{n+1}"
+        		stock 			= n * 15
+    			company.products.create!(
+        				name: nombre_producto,
+        				description: descripcion,
+        				stock: stock)
+    		end
+    	}
+    end
+
 end

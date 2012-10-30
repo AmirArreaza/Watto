@@ -1,0 +1,10 @@
+<h1>Reserve un producto</h1>
+
+<div class="row">
+	<div class="span4 offset4">
+    	<%= form_for(@reservation) do |f| %>
+            <%= render 'fields', f:f %>
+      		<%= f.submit "Crear reservacion", class: "btn btn-success" %>
+    	<% end %>
+  	</div>
+</div>
