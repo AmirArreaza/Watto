@@ -1,3 +1,4 @@
 <h1>Reservación realizada:</h1>
-<span class="user_id"><%= @reservation.user.first_name %></span>
-<span class="total_cost"><%= @reservation.total_cost %></span>
+<span class="first_name"><%= @reservation.user.first_name %></span><br/>
+<span class="name"><%= @reservation.product.name %></span><br/>
+<span class="expiration_date"><%= @reservation.expiration_date %></span><br/>

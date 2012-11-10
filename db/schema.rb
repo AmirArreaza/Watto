@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121008234449) do
+ActiveRecord::Schema.define(:version => 20121106195800) do
 
   create_table "addresses", :force => true do |t|
     t.string   "location_type"
@@ -61,13 +61,13 @@ ActiveRecord::Schema.define(:version => 20121008234449) do
     t.integer  "user_id"
     t.integer  "quantity"
     t.float    "total_cost"
-    t.date     "expiration_date"
+    t.datetime "expiration_date"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
   end
 
   add_index "reservations", ["product_id"], :name => "index_reservations_on_product_id"
-  add_index "reservations", ["user_id", "product_id"], :name => "index_reservations_on_user_id_and_product_id", :unique => true
+  add_index "reservations", ["user_id", "product_id"], :name => "index_reservations_on_user_id_and_product_id"
   add_index "reservations", ["user_id"], :name => "index_reservations_on_user_id"
 
   create_table "users", :force => true do |t|

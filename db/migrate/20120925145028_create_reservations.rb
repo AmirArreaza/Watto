@@ -11,6 +11,6 @@ class CreateReservations < ActiveRecord::Migration
     end
     add_index :reservations, :user_id
     add_index :reservations, :product_id
-    add_index :reservations, [:user_id, :product_id], unique: true
+    add_index :reservations, [:user_id, :product_id]
   end
 end

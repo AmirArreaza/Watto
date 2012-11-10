@@ -12,8 +12,7 @@ class Reservation < ActiveRecord::Base
 	private 
 		
 		def calculate_expiration_date
-			self.expiration_date = self.created_at
-			
+			self.expiration_date = Time.zone.now + 5.days
 		end
 
 		def calculate_total_cost
