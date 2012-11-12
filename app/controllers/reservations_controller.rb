@@ -2,6 +2,10 @@
 class ReservationsController < ApplicationController
 	before_filter :signed_in_user, only: [:new, :create, :show, :destroy, :update, :edit]
 
+	def show
+		@reservation = Reservation.where(:user_id=>current_user).where(:product_id=>params[:id]).first
+	end
+
 	def new
 		@reservation = Reservation.new
 	end
@@ -23,9 +27,19 @@ class ReservationsController < ApplicationController
 		end
 	end
 
-	def show
-		@reservation = Reservation.where(:user_id=>current_user).where(:product_id=>params[:id]).first
-	end
+	def edit
+    	@reservation = Reservation.where(:user_id=>current_user).where(:product_id=>params[:id]).first
+  	end
+
+  	def update
+  		@reservation = Reservation.where(:user_id=>current_user).where(:product_id=>params[:id]).first
+    	if @reservation.update_attributes(params[:reservation])
+      		flash[:sucess] = "La reservacion del producto #{@reservation.product.name} ha sido modificada."
+      		redirect_to @company
+    	else
+      		render "edit"
+    	end
+  	end
 
 	def destroy
     	Reservation.find(params[:user_id, :product_id]).destroy

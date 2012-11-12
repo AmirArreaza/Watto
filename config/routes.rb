@@ -1,6 +1,4 @@
 Watto::Application.routes.draw do
-  root to: 'static_pages#home'
-
   resources :sessions, 	only: [:new, :create, :destroy]
   resources :users, 	only: [:new, :create, :show]
   resources :addresses, only: [:new, :create, :show, :edit, :update]
