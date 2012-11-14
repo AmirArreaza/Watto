@@ -2,3 +2,7 @@
 <span class="first_name"><%= @reservation.user.first_name %></span><br/>
 <span class="name"><%= @reservation.product.name %></span><br/>
 <span class="expiration_date"><%= @reservation.expiration_date %></span><br/>
+
+<br/>
+<br/>
+<%= render 'reservation_delete_button', item: @reservation %>

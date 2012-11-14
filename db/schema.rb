@@ -56,7 +56,7 @@ ActiveRecord::Schema.define(:version => 20121106195800) do
 
   add_index "products", ["company_id"], :name => "index_products_on_company_id"
 
-  create_table "reservations", :id => false, :force => true do |t|
+  create_table "reservations", :force => true do |t|
     t.integer  "product_id"
     t.integer  "user_id"
     t.integer  "quantity"

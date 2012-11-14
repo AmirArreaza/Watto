@@ -7,7 +7,7 @@ class Reservation < ActiveRecord::Base
 	validates :quantity, presence: true
 	validates :product_id, presence: true
 
-	before_save :calculate_expiration_date
+	before_create :calculate_expiration_date
 
 	private 
 		

@@ -1,6 +1,6 @@
 class CreateReservations < ActiveRecord::Migration
   def change
-    create_table :reservations, :id => false do |t|
+    create_table :reservations do |t|
       t.integer :product_id
       t.integer :user_id
       t.integer :quantity
