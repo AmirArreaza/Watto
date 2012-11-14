@@ -1,3 +1,16 @@
+# == Schema Information
+#
+# Table name: addresses
+#
+#  id                :integer          not null, primary key
+#  location_type     :string(255)
+#  address_name      :text
+#  map_coordinates   :string(255)
+#  belong_address_id :integer
+#  created_at        :datetime         not null
+#  updated_at        :datetime         not null
+#
+
 class Address < ActiveRecord::Base
 	
 	attr_accessible :belong_address, :address_name, :map_coordinates, :location_type
