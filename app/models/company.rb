@@ -13,11 +13,13 @@
 #
 
 class Company < ActiveRecord::Base
-  attr_accessible :commercial_name, :description, :fiscal_name, :rif
+  attr_accessible :commercial_name, :description, :fiscal_name, :rif, :phones_attributes
 
   belongs_to :user
   has_many :products
   has_many :phones
 
   validates :user_id, presence: true
+
+  accepts_nested_attributes_for :phones
 end

@@ -12,9 +12,8 @@
 
 class Phone < ActiveRecord::Base
 
-	attr_accessible :number, :type
+	attr_accessible :number, :phone_type
 
 	belongs_to :company
-	
-	validates :company_id, presence: true
+
 end

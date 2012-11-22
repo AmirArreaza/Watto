@@ -3,6 +3,7 @@ class CompaniesController < ApplicationController
 
   def new
     @company = Company.new
+    @company.phones.build
   end
 
   def index
