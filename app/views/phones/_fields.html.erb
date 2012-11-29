@@ -1,0 +1,8 @@
+<%= f.fields_for :phones do |phone| -%>
+    <%= phone.label :phone_type %>
+    <%= phone.select :phone_type, @phone_types, :include_blank => true%>
+
+	<%= phone.label :number %>
+	<%= phone.text_field :number %>
+<% end -%>
+
