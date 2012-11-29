@@ -1,7 +1,8 @@
-<%= render 'shared/error_messages', object: f.object %>
+<%= f.fields_for :phones do |phone| -%>
+    <%= phone.label :phone_type %>
+    <%= phone.select :phone_type, @phone_types, :include_blank => true%>
 
-<%= f.label :phone_type%>
-<%= f.text_field :phone_type %>
+	<%= phone.label :number %>
+	<%= phone.text_field :number %>
+<% end -%>
 
-<%= f.label :number %>
-<%= f.text_field :number %>

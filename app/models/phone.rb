@@ -16,4 +16,18 @@ class Phone < ActiveRecord::Base
 
 	belongs_to :company
 
+	validates_presence_of :number, :if => :type_selected?
+
+
+	def type_selected?
+  		if self.phone_type == "" then
+  			logger.debug "type_selected return false"
+  			self.destroy
+  			false
+  		else
+  			logger.debug "type_selected return true"
+  			true
+  		end
+	end
+
 end

@@ -17,7 +17,7 @@ class Company < ActiveRecord::Base
 
   belongs_to :user
   has_many :products
-  has_many :phones
+  has_many :phones, dependent: :destroy
 
   validates :user_id, presence: true
 

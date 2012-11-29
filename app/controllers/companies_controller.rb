@@ -3,7 +3,10 @@ class CompaniesController < ApplicationController
 
   def new
     @company = Company.new
-    @company.phones.build
+    @phone_types = ["Casa", "Oficina", "Movil"]
+  	3.times do
+    	@company.phones.build
+    end
   end
 
   def index
