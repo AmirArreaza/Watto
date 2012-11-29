@@ -1,0 +1,10 @@
+<h1>Agregar producto para compañía: <%= @company.commercial_name %></h1>
+
+<div class="row">
+	<div class="span4 offset4">
+    <%= form_for(@product) do |f| %>
+      <%= render 'fields', f:f %>
+      <%= f.submit "Crear producto", company: @company, class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

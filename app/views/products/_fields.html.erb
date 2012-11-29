@@ -1,0 +1,12 @@
+<%= render 'shared/error_messages', object: f.object %>
+
+<%= f.label :name %>
+<%= f.text_field :name %>
+
+<%= f.label :description %>
+<%= f.text_field :description %>
+
+<%= f.label :stock %>
+<%= f.text_field :stock %>
+
+<%= hidden_field_tag "company", @company.id %>

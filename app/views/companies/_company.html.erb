@@ -1,5 +1,4 @@
 <li id="<%= company.id %>">
-<<<<<<< HEAD
   <span class="commercial_name">
     <b><%= link_to "#{company.commercial_name}", company %></b>
   </span>
@@ -9,17 +8,4 @@
     <%= link_to "Editar Compañía", edit_company_path(company) %>
   <% end %>
   <%= render "companies/company_delete_button", item: company %>
-  <%= link_to "Nueva Compañía", new_company_path, class: "btn btn-primary" %>
-  <%= will_paginate company.products %>
-=======
-	<span class="commercial_name">
-    	<b><%= link_to "#{company.commercial_name}", company %></b>
-  	</span>
-  	<span class="fiscal_name"><%= company.fiscal_name %></span>
-  	<span class="description"><%= company.description %></span>
-  	<% if current_user?(company.user) %>
-    	<%= link_to "Editar Compañía", edit_company_path(company) %>
-  	<% end %>
-  	<%= render "companies/company_delete_button", item: company %>
->>>>>>> cc05e175d037bcce13b75842f6e22c58dd2f2845
 </li>
