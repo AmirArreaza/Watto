@@ -8,7 +8,8 @@ Watto::Application.routes.draw do
   resources :products, 		only: [:show, :new, :create, :edit, :update, :destroy]
   resources :reservations, 	only: [:show, :new, :create, :edit, :update, :destroy]
   resources :phones,		only: [:show, :new, :create, :edit, :update, :destroy]
-  match "phones/new/:id" => "phones#new"
+  	match "phones/new/:id" => "phones#new"
+  resources :promotions,	only: [:show, :new, :create, :edit, :update, :destroy]
 
   root to: 'users#new'
 
