@@ -4,6 +4,7 @@
     <span class="fiscal_name"><%= @company.fiscal_name %></span>
     <span class="description"><%= @company.description %></span>
     <%= link_to "Nuevo Producto", new_product_path(company: @company), class: "btn btn-primary" %>
+    <%= link_to "Nuevo Promocion", new_promotion_path(company: @company), class: "btn btn-primary" %>
     <ol class="products">
       <h2>Productos</h2>
       <%= render @products %>

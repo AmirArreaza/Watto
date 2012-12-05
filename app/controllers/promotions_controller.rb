@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 class PromotionsController < ApplicationController
+	before_filter :signed_in_user, only: [:new, :create, :destroy, :update, :edit]
 	
 	def show
     	@promotion = Promotion.find(params[:id])
@@ -7,10 +8,13 @@ class PromotionsController < ApplicationController
 
 	def new
     	@promotion = Promotion.new
+    	@company = current_user.companies.find_by_id(params[:company])
+    	@promotion.company_id = @company.id
   	end
 
   	def create
-    	@promotion = Promotion.new(params[:promotion])
+    	@company = current_user.companies.find_by_id(params[:company])
+    	@promotion = @company.promotions.build(params[:promotion])
     	if @promotion.save
       		flash[:success] = "La promoción se asigno correctamente."
       		redirect_to @promotion
@@ -31,6 +35,11 @@ class PromotionsController < ApplicationController
     	else
       		render "edit"
     	end
+  	end
+
+  	def destroy
+    	Promotion.find(params[:id]).destroy
+    	render 'new'
   	end
 
 end

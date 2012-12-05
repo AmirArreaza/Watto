@@ -1,3 +1,5 @@
 <%= render 'shared/error_messages', object: f.object %>
 
 <%= f.datepicker(:begin_date, :readonly=>'true', :dateFormat => 'dd-mm-yy')  %>
+
+<%= hidden_field_tag "company", @company.id %>

@@ -17,10 +17,11 @@ class Promotion < ActiveRecord::Base
 
   	belongs_to :company
 
+  	validates :begin_date, presence: true
+
   	before_save :calculate_end_date
 
-  	private
-  		def calculate_end_date
-  			self.end_date = self.begin_date + 5.days
-  		end
+  	def calculate_end_date
+  		self.end_date = self.begin_date + 5.days
+  	end
 end

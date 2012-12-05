@@ -1,4 +1,4 @@
 <p>
-	La promoción empienza el: <%= @promotion.begin_date.strftime(“%d.%m.%y”) %> <br/>
-	La promoción termine el: <%= @promotion.end_date.strftime(“%d.%m.%y”) %> 
+	La promoción empienza el: <%= @promotion.begin_date %> <br/>
+	La promoción termine el: <%= @promotion.end_date.to_formatted_s(:long) %> 
 </p>
