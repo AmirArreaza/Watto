@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121203200410) do
+ActiveRecord::Schema.define(:version => 20121206152403) do
 
   create_table "addresses", :force => true do |t|
     t.string   "location_type"
@@ -66,13 +66,23 @@ ActiveRecord::Schema.define(:version => 20121203200410) do
 
   add_index "products", ["company_id"], :name => "index_products_on_company_id"
 
+  create_table "promotion_types", :force => true do |t|
+    t.decimal  "price",      :precision => 2, :scale => 2
+    t.integer  "duration"
+    t.string   "banner"
+    t.datetime "created_at",                               :null => false
+    t.datetime "updated_at",                               :null => false
+    t.string   "name"
+  end
+
   create_table "promotions", :force => true do |t|
     t.datetime "begin_date"
     t.datetime "end_date"
     t.string   "resource_path"
     t.integer  "company_id"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+    t.integer  "promotion_type_id"
   end
 
   add_index "promotions", ["company_id"], :name => "index_promotions_on_company_id"

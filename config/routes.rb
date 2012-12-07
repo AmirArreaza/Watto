@@ -10,6 +10,7 @@ Watto::Application.routes.draw do
   resources :phones,		only: [:show, :new, :create, :edit, :update, :destroy]
   	match "phones/new/:id" => "phones#new"
   resources :promotions,	only: [:show, :new, :create, :edit, :update, :destroy]
+  resources :promotion_types,	only: [:show, :new, :create, :edit, :update, :destroy]
 
   root to: 'users#new'
 
