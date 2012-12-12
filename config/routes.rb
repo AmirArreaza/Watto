@@ -4,13 +4,15 @@ Watto::Application.routes.draw do
   resources :addresses, only: [:new, :create, :show, :edit, :update]
   	match "addresses/update_cities/:id" => "addresses#update_cities"
   	match "addresses/update_states/:id" => "addresses#update_states"
-  resources :companies, 	only: [:show, :new, :create, :edit, :update, :destroy]
-  resources :products, 		only: [:show, :new, :create, :edit, :update, :destroy]
-  resources :reservations, 	only: [:show, :new, :create, :edit, :update, :destroy]
-  resources :phones,		only: [:show, :new, :create, :edit, :update, :destroy]
+  resources :companies, 		only: [:show, :new, :create, :edit, :update, :destroy]
+  resources :products, 			only: [:show, :new, :create, :edit, :update, :destroy]
+  resources :reservations, 		only: [:show, :new, :create, :edit, :update, :destroy]
+  resources :phones,			only: [:show, :new, :create, :edit, :update, :destroy]
   	match "phones/new/:id" => "phones#new"
-  resources :promotions,	only: [:show, :new, :create, :edit, :update, :destroy]
+  resources :promotions,		only: [:show, :new, :create, :edit, :update, :destroy]
   resources :promotion_types,	only: [:show, :new, :create, :edit, :update, :destroy]
+  resources :departments, 		only: [:show, :new, :create, :edit, :update, :destroy]
+  resources :subdepartments, 	only: [:show, :new, :create, :edit, :update, :destroy]
 
   root to: 'users#new'
 

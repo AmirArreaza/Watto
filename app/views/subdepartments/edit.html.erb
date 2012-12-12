@@ -1,0 +1,10 @@
+<h1>Modificar el subdepartamento</h1>
+
+<div class="row">
+	<div class="span4 offset4">
+    	<%= form_for(@subdepartment) do |f| %>
+            <%= render 'fields', f:f %>
+      		<%= f.submit "Modificar Sub-departamento", class: "btn btn-success" %>
+    	<% end %>
+  	</div>
+</div>

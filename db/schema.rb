@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121206152403) do
+ActiveRecord::Schema.define(:version => 20121212144116) do
 
   create_table "addresses", :force => true do |t|
     t.string   "location_type"
@@ -44,6 +44,13 @@ ActiveRecord::Schema.define(:version => 20121206152403) do
   end
 
   add_index "companies", ["user_id"], :name => "index_companies_on_user_id"
+
+  create_table "departments", :force => true do |t|
+    t.string   "name"
+    t.string   "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
 
   create_table "phones", :force => true do |t|
     t.string   "number"
@@ -100,6 +107,14 @@ ActiveRecord::Schema.define(:version => 20121206152403) do
   add_index "reservations", ["product_id"], :name => "index_reservations_on_product_id"
   add_index "reservations", ["user_id", "product_id"], :name => "index_reservations_on_user_id_and_product_id"
   add_index "reservations", ["user_id"], :name => "index_reservations_on_user_id"
+
+  create_table "subdepartments", :force => true do |t|
+    t.string   "name"
+    t.string   "description"
+    t.integer  "department_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.integer  "id_number"
