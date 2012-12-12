@@ -43,12 +43,21 @@ class User < ActiveRecord::Base
         format: { with: VALID_EMAIL_REGEX, message: "es invalido" }, 
         uniqueness: { case_sensitive: false, message: "ya existe en el sistema" }
 
+<<<<<<< HEAD
     validates :password, 	presence: { message: "no puede estar en blanco" },  :on => :save
+=======
+	def blacklisted(id)
+		Blacklist.find_by_user_id(id)
+	end
+
+	private
+>>>>>>> blacklists
 
     validates :password_confirmation, presence: { message: "no puede estar en blanco" }, :on => :save
 
     private
 
+<<<<<<< HEAD
         def create_remember_token
             self.remember_token = SecureRandom.urlsafe_base64
         end
@@ -56,4 +65,7 @@ class User < ActiveRecord::Base
         def clear_password
             self.password = nil
         end
+=======
+		
+>>>>>>> blacklists
 end

@@ -10,5 +10,10 @@
 #
 
 class Blacklist < ActiveRecord::Base
-  attr_accessible :reason, :user_id
+  	attr_accessible :reason, :user_id
+
+	validates :reason, 	presence: { message: "no puede estar en blanco" }
+	
+	validates :user_id, presence: { message: "no puede estar en blanco" }
+
 end

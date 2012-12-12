@@ -7,10 +7,15 @@ gem 'faker', '1.0.1'
 gem 'will_paginate', '3.0.3'
 gem 'bootstrap-will_paginate', '0.0.6'
 gem 'magic_encoding'
+<<<<<<< HEAD
 gem 'jquery-rails'
 gem 'jquery_datepicker'
 gem 'bootstrap-datepicker-rails'
 
+=======
+gem 'annotate', '2.5.0', group: :development
+gem 'jquery-rails', '2.0.2'
+>>>>>>> blacklists
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
@@ -22,6 +27,7 @@ group :assets do
   	gem 'uglifier', '1.2.3'
 end
 
+<<<<<<< HEAD
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
@@ -36,6 +42,8 @@ end
 
 # To use debugger
 # gem 'debugger'
+=======
+>>>>>>> blacklists
 group :test do
   	gem 'capybara', '1.1.2'
   	gem 'factory_girl_rails', '1.4.0'
@@ -46,7 +54,11 @@ end
 group :development, :test do
   	gem 'sqlite3', '1.3.5'
   	gem 'rspec-rails', '2.10.0'
+<<<<<<< HEAD
   	gem 'annotate', '2.5.0'
+=======
+
+>>>>>>> blacklists
 end
 
 group :production do
