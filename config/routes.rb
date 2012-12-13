@@ -1,5 +1,4 @@
 Watto::Application.routes.draw do
-<<<<<<< HEAD
   resources :sessions, 	only: [:new, :create, :destroy]
   resources :users, 	only: [:new, :create, :show]
   resources :addresses, only: [:new, :create, :show, :edit, :update]
@@ -14,14 +13,6 @@ Watto::Application.routes.draw do
   resources :promotion_types,	only: [:show, :new, :create, :edit, :update, :destroy]
   resources :departments, 		only: [:show, :new, :create, :edit, :update, :destroy]
   resources :subdepartments, 	only: [:show, :new, :create, :edit, :update, :destroy]
-=======
-  get "blacklists/new"
-
-	root to: 'static_pages#home'
-  	
-  	resources :sessions, 	only: [:new, :create, :destroy]
-  	resources :users, only: [:new, :create, :show]
->>>>>>> blacklists
 
   root to: 'users#new'
 
