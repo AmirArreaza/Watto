@@ -2,13 +2,14 @@
 #
 # Table name: promotions
 #
-#  id            :integer          not null, primary key
-#  begin_date    :datetime
-#  end_date      :datetime
-#  resource_path :string(255)
-#  company_id    :integer
-#  created_at    :datetime         not null
-#  updated_at    :datetime         not null
+#  id                :integer          not null, primary key
+#  begin_date        :datetime
+#  end_date          :datetime
+#  resource_path     :string(255)
+#  company_id        :integer
+#  created_at        :datetime         not null
+#  updated_at        :datetime         not null
+#  promotion_type_id :integer
 #
 
 class Promotion < ActiveRecord::Base
