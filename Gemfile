@@ -11,8 +11,6 @@ gem 'jquery-rails'
 gem 'jquery_datepicker'
 gem 'bootstrap-datepicker-rails'
 
-gem 'annotate', '2.5.0', group: :development
-gem 'jquery-rails', '2.0.2'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
