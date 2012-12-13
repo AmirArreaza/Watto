@@ -13,6 +13,7 @@ Watto::Application.routes.draw do
   resources :promotion_types,	only: [:show, :new, :create, :edit, :update, :destroy]
   resources :departments, 		only: [:show, :new, :create, :edit, :update, :destroy]
   resources :subdepartments, 	only: [:show, :new, :create, :edit, :update, :destroy]
+  resources :payment_methods,	only: [:show, :new, :create, :edit, :update, :destroy]
 
   root to: 'users#new'
 

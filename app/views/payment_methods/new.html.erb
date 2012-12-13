@@ -1,0 +1,10 @@
+<h1>Agregue una forma de pago</h1>
+
+<div class="row">
+	<div class="span4 offset4">
+    	<%= form_for(@payment_method) do |f| %>
+            <%= render 'fields', f:f %>
+      		<%= f.submit "Crear forma de pago", class: "btn btn-success" %>
+    	<% end %>
+  	</div>
+</div>
