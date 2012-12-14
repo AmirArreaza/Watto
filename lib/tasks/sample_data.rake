@@ -4,6 +4,9 @@ namespace :db do
         make_users
     	make_companies
         make_products
+        make_departments
+        make_promotion_type
+        make_payment_methods
     end
 
     def make_users
@@ -49,6 +52,43 @@ namespace :db do
         				stock: stock)
     		end
     	}
+    end
+
+    def make_departments
+    	10.times do |n|
+    		name  = Faker::Address.us_state()
+            description = Faker::Address.us_state_abbr
+            Department.create!(
+            		name: name,
+            		description: description
+            		)
+    	end
+    end
+
+    def make_payment_methods
+    	3.times do |n|
+    		name = Faker::Address.us_state_abbr
+    		maximum_allowed = 100000 +n+1
+    		PaymentMethod.create!(
+    				name: name,
+    				maximum_allowed: maximum_allowed
+    			)
+    	end
+    end
+
+    def make_promotion_type
+    	10.times do |n|
+    		name = Faker::Name.name
+    		price = 10101010 + n 
+    		duration = n*n
+    		banner = "C:\\ " + Faker::Address.us_state()
+    		PromotionType.create!(
+    				name: name,
+    				price: price,
+    				duration: duration,
+    				banner: banner
+    			)
+    	end
     end
 
 end
