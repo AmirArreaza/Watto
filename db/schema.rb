@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121206152403) do
+ActiveRecord::Schema.define(:version => 20121213202339) do
 
   create_table "addresses", :force => true do |t|
     t.string   "location_type"
@@ -27,8 +27,10 @@ ActiveRecord::Schema.define(:version => 20121206152403) do
   create_table "blacklists", :force => true do |t|
     t.string   "reason"
     t.integer  "user_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+    t.integer  "duration_days"
+    t.datetime "end_date"
   end
 
   add_index "blacklists", ["user_id", "created_at"], :name => "index_blacklists_on_user_id_and_created_at"
@@ -44,6 +46,20 @@ ActiveRecord::Schema.define(:version => 20121206152403) do
   end
 
   add_index "companies", ["user_id"], :name => "index_companies_on_user_id"
+
+  create_table "departments", :force => true do |t|
+    t.string   "name"
+    t.string   "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "payment_methods", :force => true do |t|
+    t.string   "name"
+    t.float    "maximum_allowed"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
 
   create_table "phones", :force => true do |t|
     t.string   "number"
@@ -93,13 +109,22 @@ ActiveRecord::Schema.define(:version => 20121206152403) do
     t.integer  "quantity"
     t.float    "total_cost"
     t.datetime "expiration_date"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+    t.integer  "payment_method_id"
   end
 
   add_index "reservations", ["product_id"], :name => "index_reservations_on_product_id"
   add_index "reservations", ["user_id", "product_id"], :name => "index_reservations_on_user_id_and_product_id"
   add_index "reservations", ["user_id"], :name => "index_reservations_on_user_id"
+
+  create_table "subdepartments", :force => true do |t|
+    t.string   "name"
+    t.string   "description"
+    t.integer  "department_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.integer  "id_number"

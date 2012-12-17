@@ -2,14 +2,15 @@
 #
 # Table name: reservations
 #
-#  id              :integer          not null, primary key
-#  product_id      :integer
-#  user_id         :integer
-#  quantity        :integer
-#  total_cost      :float
-#  expiration_date :datetime
-#  created_at      :datetime         not null
-#  updated_at      :datetime         not null
+#  id                :integer          not null, primary key
+#  product_id        :integer
+#  user_id           :integer
+#  quantity          :integer
+#  total_cost        :float
+#  expiration_date   :datetime
+#  created_at        :datetime         not null
+#  updated_at        :datetime         not null
+#  payment_method_id :integer
 #
 
 class Reservation < ActiveRecord::Base
