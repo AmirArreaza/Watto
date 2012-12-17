@@ -14,6 +14,6 @@
 class PromotionType < ActiveRecord::Base
   attr_accessible :banner, :duration, :price, :name
 
-  belongs_to :promotion
+  has_many :promotion
 
 end

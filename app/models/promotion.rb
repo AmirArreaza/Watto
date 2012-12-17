@@ -17,7 +17,7 @@ class Promotion < ActiveRecord::Base
   	attr_accessible :begin_date,  :promotion_type_id
 
   	belongs_to :company
-  	has_many :promotion_types
+  	belongs_to :promotion_types
 
   	validates :begin_date, presence: true
   	
