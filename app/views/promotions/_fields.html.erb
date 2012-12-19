@@ -1,7 +1,9 @@
 <%= render 'shared/error_messages', object: f.object %>
 
+<%= f.label :promotion_type_id %>
 <%= f.collection_select :promotion_type_id, PromotionType.all, :id, :name, :prompt => "- Tipo de Promocion -" %>
 
+<%= f.label :begin_date %>
 <%= f.datepicker(:begin_date, :readonly=>'true', :dateFormat => 'dd-mm-yy')  %>
 
 <%= hidden_field_tag "company", @company.id %>

@@ -36,8 +36,8 @@ module Watto
     # config.time_zone = 'Central Time (US & Canada)'
 
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
-    # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
-    # config.i18n.default_locale = :de
+     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '*.{rb,yml}').to_s]
+     config.i18n.default_locale = :es
 
     # Configure the default encoding used in templates for Ruby 1.9.
     config.encoding = "utf-8"
@@ -64,13 +64,6 @@ module Watto
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
-
-    #Internacionalizacion
-    # tell the I18n library where to find your translations
-    I18n.load_path += Dir[Rails.root.join('lib', 'locale', '*.{rb,yml}')]
- 
-    # set default locale to something other than :en
-    I18n.default_locale = :es
 
   end
 end

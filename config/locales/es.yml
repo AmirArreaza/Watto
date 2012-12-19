@@ -195,15 +195,41 @@ es:
     errors:
       <<: *errors
   activerecord:
-    errors:
-      <<: *errors
-  activerecord:
     attributes:
       user:
-        email: E-mail
-        id_number: Cedula
-        first_name: Nombre
-        last_name: Apellido
-        password: Contraseña
-        password_confirmation: Confirmar Contraseña
-        password_digest: Contraseña
+        id_number: "Cedula"
+        email: "E-Mail"
+        first_name: "Nombre"
+        last_name: "Apellido"
+        password: "Contraseña"
+        password_confirmation: "Confirmar Contraseña"
+      company:
+        commercial_name: "Nombre Comercial"
+        description: "Descripción"
+        fiscal_name: "Nombre Fiscal"
+        rif: "Rif"
+      phone:
+        number: "Numero"
+        phone_type: "Tipo de Telefono"
+      department:
+        description: "Descripción"
+        name: "Nombre"
+      subdepartment:
+        department_id: "Departamento"
+        description: "Descripción"
+        name: "Nombre"
+      product:
+        description: "Descripción"
+        name: "Nombre"
+        stock: "Stock"
+      promotion:
+        begin_date: "Fecha de Inicio"
+        promotion_type_id: "Tipo de Promoción"
+      promotion_type:
+        banner: "Banner"
+        duration: "Duración"
+        price: "Precio"
+        name: "Nombre"
+      reservation:
+        quantity: "Cantidad" 
+        product_id: "Producto"
