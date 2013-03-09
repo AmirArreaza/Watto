@@ -6,7 +6,6 @@ namespace :db do
         make_products
         make_departments
         make_promotion_type
-        make_payment_methods
     end
 
     def make_users

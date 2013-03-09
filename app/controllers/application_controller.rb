@@ -10,4 +10,9 @@ class ApplicationController < ActionController::Base
 		I18n.locale = params[:locale] || I18n.default_locale
 	end
 
+	def search
+		@products = Product.where("name LIKE ?", "%#{params[:name]}%").paginate(page: params[:page])
+		render "products/show"
+	end
+
 end

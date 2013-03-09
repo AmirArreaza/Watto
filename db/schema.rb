@@ -114,6 +114,7 @@ ActiveRecord::Schema.define(:version => 20121213202339) do
     t.integer  "payment_method_id"
   end
 
+  add_index "reservations", ["payment_method_id"], :name => "index_reservations_on_payment_method_id"
   add_index "reservations", ["product_id"], :name => "index_reservations_on_product_id"
   add_index "reservations", ["user_id", "product_id"], :name => "index_reservations_on_user_id_and_product_id"
   add_index "reservations", ["user_id"], :name => "index_reservations_on_user_id"

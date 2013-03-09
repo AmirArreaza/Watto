@@ -1,9 +1,36 @@
 @import "bootstrap";
 
+$green: #46a546;
+$grayDarker: #222;
+
 @mixin box_sizing {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
+}
+
+.navbar-inner {
+  background-color: $green; 
+  background-image: none;
+  background-repeat: no-repeat;
+  filter: none;
+  height: 55px;
+}
+
+/* Header bar */
+header ul li{
+    font-size: xx-small;
+    a {
+        color: $grayDarker;
+        &:hover {
+            text-decoration: none;
+            color: $green;
+        }
+        &:link {
+            color: $grayDarker;
+            text-decoration: none;
+        }
+    }
 }
 
 .companies {
@@ -25,3 +52,5 @@
     border-top: 1px solid #e8e8e8;
   }
 }
+
+

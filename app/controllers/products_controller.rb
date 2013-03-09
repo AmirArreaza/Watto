@@ -1,5 +1,13 @@
 class ProductsController < ApplicationController
+  
+  require 'will_paginate/array'
+
+  def show
+    
+  end
+
   def index
+    @products = Product.all.paginate(page: params[:page])
   end
 
   def view

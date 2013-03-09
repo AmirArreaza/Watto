@@ -15,10 +15,11 @@ Watto::Application.routes.draw do
   resources :subdepartments, 	only: [:show, :new, :create, :edit, :update, :destroy]
   resources :payment_methods,	only: [:show, :new, :create, :edit, :update, :destroy]
 
-  root to: 'users#new'
+  root to: 'products#index'
 
   match '/signup',  to: 'users#new'
   match '/signin',  to: 'sessions#new'
   match '/signout', to: 'sessions#destroy', via: :delete
+  match "/search",  to: "application#search"
 
 end

@@ -2,18 +2,34 @@
   <div class="navbar-inner">
     <div class="container">
       <nav>
-      <ul class="nav pull-right">
-        <% if signed_in? %>
-          <li><%= link_to "Home", current_user %></li>
-          <li><%= link_to "Compañias", new_company_path %></li>
-          <li><%= link_to "Direcciones", new_address_path %></li>
-          <li><%= link_to "Salir", signout_path, method: "delete" %></li>
-        <% else %>
-          <li><%= link_to "Home", root_path %></li>
-          <li><%= link_to "Registrarse", new_user_path %></li>
-          <li><%= link_to "Ingresar", signin_path %></li>
-        <% end %> 
-      </ul>
+        <ul class="nav pull-right">
+          <% if signed_in? %>
+            <li><%= link_to "Home", current_user %></li>
+            <li><%= link_to "Compañias", new_company_path %></li>
+            <li><%= link_to "Direcciones", new_address_path %></li>
+            <li><%= link_to "Salir", signout_path, method: "delete" %></li>
+          <% else %>
+            <div class="header">
+              <li><%= link_to "Ingresar", signin_path %></li>
+              <li><%= link_to "Registrarse", new_user_path %></li>
+              <li><%= link_to "Olvido su contraseña?", signin_path %></li>
+            </div>
+          <br/>
+          <% end %> 
+        </ul>
+        <div class="nav  pull-left">
+          <%= image_tag("Logo_Base.gif", :class => "img-rounded") %>
+        </div>
+        <div class="nav">
+          <%= form_tag("/search", :method => "get", :class => "navbar-form") do %>
+            <ul class="nav">
+              <li></li>
+              <li>
+                <%= text_field_tag :name, nil, :class => "search-query input-xxlarge", :placeholder => "Buscar Producto..."%>
+              </li>
+            </ul>
+          <% end %>
+        </div>
       </nav>
     </div>
   </div>
