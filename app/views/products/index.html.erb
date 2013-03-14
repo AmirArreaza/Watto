@@ -1,11 +1,20 @@
 <% provide(:title, 'All users') %>
-
-<%= will_paginate @products %>
-
+<br/>
 <ul>
   <% @products.each do |product| %>
     <li>
-      <%= product.name %>
+      <h4><%= product.name %></h4>
+	  <ul>
+		<li>
+			<%= product.stock %>
+		</li>
+		<li>
+			<%= product.description %>
+		</li>
+		<li>
+			<%= image_tag product.image_url, :class => "img-polaroid" %>
+		</li>
+	  </ul>
     </li>
   <% end %>
 </ul>

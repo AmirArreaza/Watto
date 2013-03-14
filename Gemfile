@@ -10,6 +10,7 @@ gem 'magic_encoding'
 gem 'jquery-rails'
 gem 'jquery_datepicker'
 gem 'bootstrap-datepicker-rails'
+gem 'carrierwave'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -22,20 +23,6 @@ group :assets do
   	gem 'uglifier', '1.2.3'
 end
 
-# To use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
-
-# To use Jbuilder templates for JSON
-# gem 'jbuilder'
-
-# Use unicorn as the app server
-# gem 'unicorn'
-
-# Deploy with Capistrano
-# gem 'capistrano'
-
-# To use debugger
-# gem 'debugger'
 group :test do
   	gem 'capybara', '1.1.2'
   	gem 'factory_girl_rails', '1.4.0'

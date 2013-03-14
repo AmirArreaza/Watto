@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121213202339) do
+ActiveRecord::Schema.define(:version => 20130312161116) do
 
   create_table "addresses", :force => true do |t|
     t.string   "location_type"
@@ -78,6 +78,7 @@ ActiveRecord::Schema.define(:version => 20121213202339) do
     t.integer  "company_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.string   "image"
   end
 
   add_index "products", ["company_id"], :name => "index_products_on_company_id"
@@ -114,7 +115,6 @@ ActiveRecord::Schema.define(:version => 20121213202339) do
     t.integer  "payment_method_id"
   end
 
-  add_index "reservations", ["payment_method_id"], :name => "index_reservations_on_payment_method_id"
   add_index "reservations", ["product_id"], :name => "index_reservations_on_product_id"
   add_index "reservations", ["user_id", "product_id"], :name => "index_reservations_on_user_id_and_product_id"
   add_index "reservations", ["user_id"], :name => "index_reservations_on_user_id"

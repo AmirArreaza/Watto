@@ -2,7 +2,19 @@
   <div class="navbar-inner">
     <div class="container">
       <nav>
-        <ul class="nav pull-right">
+		<div class="nav  pull-left">
+          <%= image_tag("Logo_Base.png", :class => "img-rounded") %>
+		</div>
+		<div class="nav">
+			<%= form_tag("/search", :method => "get", :class => "navbar-form") do %>
+				<ul class="nav">
+					<li><br/>
+						<%= text_field_tag :name, nil, :class => "search-query input-xxlarge", :placeholder => "Buscar Producto..."%>
+					</li>
+				</ul>
+			<% end %>
+        </div>
+        <ul class="nav">
           <% if signed_in? %>
             <li><%= link_to "Home", current_user %></li>
             <li><%= link_to "Compañias", new_company_path %></li>
@@ -17,19 +29,6 @@
           <br/>
           <% end %> 
         </ul>
-        <div class="nav  pull-left">
-          <%= image_tag("Logo_Base.gif", :class => "img-rounded") %>
-        </div>
-        <div class="nav">
-          <%= form_tag("/search", :method => "get", :class => "navbar-form") do %>
-            <ul class="nav">
-              <li></li>
-              <li>
-                <%= text_field_tag :name, nil, :class => "search-query input-xxlarge", :placeholder => "Buscar Producto..."%>
-              </li>
-            </ul>
-          <% end %>
-        </div>
       </nav>
     </div>
   </div>
