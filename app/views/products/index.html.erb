@@ -1,22 +1,16 @@
 <% provide(:title, 'All users') %>
 <br/>
 <ul>
-  <% @products.each do |product| %>
-    <li>
-      <h4><%= product.name %></h4>
-	  <ul>
-		<li>
-			<%= product.stock %>
-		</li>
-		<li>
-			<%= product.description %>
-		</li>
-		<li>
-			<%= image_tag product.image_url, :class => "img-polaroid" %>
-		</li>
-	  </ul>
-    </li>
-  <% end %>
+	<li>
+		<% @products.each do |product| %>
+			<div>
+				<h3><%= product.name %></h3>
+				<h6><%= product.stock %></h6>
+				<p><%= product.description %></p>
+				<%= image_tag product.image_url, :size => "400x500" %>
+			</div>
+		<% end %>
+	</li>
 </ul>
 
 <%= will_paginate @products %>

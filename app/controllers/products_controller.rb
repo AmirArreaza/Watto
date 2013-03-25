@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
   
   require 'will_paginate/array'
-
+	
   def show
     
   end
